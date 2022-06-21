@@ -1,13 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import MyList2 from "./MyList2";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const items = [
+  { id: 0, name: "First" },
+  { id: 1, name: "Second" },
+  { id: 2, name: "Third" },
+];
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <MyList2 items={items} />
   </React.StrictMode>
 );
 

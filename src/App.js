@@ -1,6 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
 import * as React from "react";
+import MyList from "./MyList";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -19,6 +19,7 @@ function App() {
     name: "",
     age: "",
   });
+
   return (
     <>
       <input
