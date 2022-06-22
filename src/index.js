@@ -4,6 +4,10 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import MyList2 from "./MyList2";
+import HigherOda from "./HigherOda";
+import MyFeature from "./MyFeature";
+import AddArticle from "./AddArticle";
+import ArticleList from "./ArticleList";
 
 const items = [
   { id: 0, name: "First" },
@@ -14,8 +18,31 @@ const items = [
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <MyList2 items={items} />
+    <MyFeature
+      addArticle={({
+        title,
+        summary,
+        onChangeTitle,
+        onChangeSummary,
+        onClickAdd,
+      }) => (
+        <AddArticle
+          name="Articles"
+          title={title}
+          summary={summary}
+          onChangeTitle={onChangeTitle}
+          onChangeSummary={onChangeSummary}
+          onClickAdd={onClickAdd}
+        />
+      )}
+      articleList={({ articles, onClickToggle, onClickRemove }) => (
+        <ArticleList
+          articles={articles}
+          onClickToggle={onClickToggle}
+          onClickRemove={onClickRemove}
+        />
+      )}
+    />
   </React.StrictMode>
 );
 
