@@ -1,43 +1,16 @@
 import "./App.css";
-import * as React from "react";
-import MyList from "./MyList";
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "changeName":
-      return { ...state, name: action.value };
-    case "changeAge":
-      return { ...state, age: action.value };
-
-    default:
-      throw new Error(`${action.type} is not a valid action`);
-  }
-}
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UsersContainer from "./UsersContainer";
+import UserContainer from "./UserContainer";
 
 function App() {
-  const [{ name, age }, dispatch] = React.useReducer(reducer, {
-    name: "",
-    age: "",
-  });
-
   return (
-    <>
-      <input
-        placeholder="Name"
-        value={name}
-        onChange={(e) =>
-          dispatch({ type: "changeName", value: e.target.value })
-        }
-      />
-      <p>Name: {name}</p>
-      <input
-        placeholder="Age"
-        type="number"
-        value={age}
-        onChange={(e) => dispatch({ type: "changeAge", value: e.target.value })}
-      />
-      <p>Age: {age}</p>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UsersContainer />} />
+        <Route path="/users/:id" element={<UserContainer />} />
+      </Routes>
+    </Router>
   );
 }
 
